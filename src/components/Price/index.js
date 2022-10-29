@@ -1,15 +1,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Product from './Product';
 import styles from './style';
 
-const ProductDetail = () => {
+const Price = () => {
     return (
         <View style={styles.container}>
-            <Text>ProductDetail</Text>
-            <Product/>
+            <Text>Price</Text>
+            <Text>fff</Text>
         </View>
     )
 }
 
-export default ProductDetail;
+export default Price;

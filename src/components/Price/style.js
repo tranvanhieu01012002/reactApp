@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
-
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:'#ffff',
-        height:'100%',
-        marginHorizontal:16
+        width:60,
+        height:60,
+        backgroundColor:'red'
     }
 });
 export default styles;

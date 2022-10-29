@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ScrollView } from 'react-native'
 import React from 'react'
 import Product from './Product';
 import styles from './style';
@@ -26,23 +26,26 @@ const data = [
     },
 ]
 
-const TopProduct = () => {
+const AllProduct = () => {
     const renderItem = ({item})=>(
-        <Product name={item.name} image={item.image}/>
+        <View>
+            <Product name={item.name} image={item.image}/>
+        </View>
     )
     return (
         <View>
             <Text>Top product</Text>
             <FlatList
                 nestedScrollEnabled
+                key={'_'}
                 style={styles.flatList}
                 data={data}
+                numColumns={2}
                 renderItem={renderItem}
-                keyExtractor={item => item.id}
-                horizontal={true}
+                keyExtractor={item => "_" + item.id}
             />
         </View>
     )
 }
 
-export default TopProduct;
+export default AllProduct;
