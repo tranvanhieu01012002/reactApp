@@ -1,13 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Screens from './src/screens'
+import Screens from './src/Screens'
 
 const App = () => {
     return (
-        <View>
-            <Screens/>
-        </View>
+        <Screens/>
     )
 }
 
-export default App
+export default App;
