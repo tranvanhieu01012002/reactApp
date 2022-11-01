@@ -1,8 +1,9 @@
-import { View, Text,Image,StyleSheet } from 'react-native'
+import { View, Text,Image } from 'react-native'
 import React from 'react'
 import styles from './style'
 import Price from '../../components/Price'
 import AddToCart from './AddToCart'
+import Hr from '../../components/Hr'
 
 const Product = () => {
     const img = require('../../assets/img/image19.png')
@@ -19,12 +20,7 @@ const Product = () => {
                 <Price/>
                 <AddToCart/>
             </View>
-            <View
-                style={{
-                    borderBottomColor: 'black',
-                    borderBottomWidth: StyleSheet.hairlineWidth,
-                }}
-            />
+            <Hr/>
         </View>
     )
 }

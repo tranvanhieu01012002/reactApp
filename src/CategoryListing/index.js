@@ -7,13 +7,17 @@ import TopProduct from './TopProduct';
 import styles from './style';
 import AllProduct from './AllProduct';
 
-const CategoryListing = () => {
+const CategoryListing = ({navigation}) => {
     return (
-        <ScrollView style={styles.container}>
-            {/* <Back/> */}
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false} 
+            horizontal={false} 
+            style={styles.container}
+        >
             <Banner/>
-            <TopProduct/>
-            <AllProduct/>
+            <TopProduct navigation={navigation}/>
+            <AllProduct navigation={navigation}/>
         </ScrollView>
     )
 }

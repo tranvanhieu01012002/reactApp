@@ -26,19 +26,21 @@ const data = [
     },
 ]
 
-const TopProduct = () => {
+const TopProduct = ({navigation}) => {
     const renderItem = ({item})=>(
-        <Product name={item.name} image={item.image}/>
+        <Product navigation={navigation} name={item.name} image={item.image}/>
     )
     return (
         <View>
             <Text>Top product</Text>
             <FlatList
+                
                 nestedScrollEnabled
                 style={styles.flatList}
                 data={data}
+                key={'_'}
                 renderItem={renderItem}
-                keyExtractor={item => item.id}
+                keyExtractor={item => "_" + item.id}
                 horizontal={true}
             />
         </View>

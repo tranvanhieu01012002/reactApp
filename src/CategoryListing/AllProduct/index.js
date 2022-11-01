@@ -26,10 +26,10 @@ const data = [
     },
 ]
 
-const AllProduct = () => {
+const AllProduct = ({navigation}) => {
     const renderItem = ({item})=>(
         <View>
-            <Product name={item.name} image={item.image}/>
+            <Product navigation={navigation} name={item.name} image={item.image}/>
         </View>
     )
     return (
@@ -37,6 +37,7 @@ const AllProduct = () => {
             <Text>Top product</Text>
             <FlatList
                 nestedScrollEnabled
+               
                 key={'_'}
                 style={styles.flatList}
                 data={data}

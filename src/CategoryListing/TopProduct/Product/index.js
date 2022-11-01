@@ -1,11 +1,13 @@
-import { View, Text,Image } from 'react-native'
+import { View, Text,Image, TouchableOpacity, Alert } from 'react-native'
 import React from 'react'
 import styles from './style'
 
-const Product = ({name,image}) => {
-   
+const Product = ({name,image,navigation}) => {
+    const press =()=>{
+        navigation.navigate('Detail Product');
+    }
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={press} style={styles.container}>
             <Image 
                 source={image}
                 style={styles.image}
@@ -19,7 +21,7 @@ const Product = ({name,image}) => {
                     {name}
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
