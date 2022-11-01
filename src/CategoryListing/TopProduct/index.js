@@ -33,8 +33,7 @@ const TopProduct = ({navigation}) => {
     return (
         <View>
             <Text>Top product</Text>
-            <FlatList
-                
+            <FlatList 
                 nestedScrollEnabled
                 style={styles.flatList}
                 data={data}

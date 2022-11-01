@@ -37,7 +37,6 @@ const AllProduct = ({navigation}) => {
             <Text>Top product</Text>
             <FlatList
                 nestedScrollEnabled
-               
                 key={'_'}
                 style={styles.flatList}
                 data={data}
