@@ -6,19 +6,22 @@ import Banner from './Banner';
 import TopProduct from './TopProduct';
 import styles from './style';
 import AllProduct from './AllProduct';
+import { NavigateProvider } from './NavigateContext';
 
 const CategoryListing = ({navigation}) => {
     return (
-        <ScrollView
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false} 
-            horizontal={false} 
-            style={styles.container}
-        >
-            <Banner/>
-            <TopProduct navigation={navigation}/>
-            <AllProduct navigation={navigation}/>
-        </ScrollView>
+       <NavigateProvider navigation={navigation}>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false} 
+                horizontal={false} 
+                style={styles.container}
+            >
+                <Banner/>
+                <TopProduct navigation={navigation}/>
+                <AllProduct navigation={navigation}/>
+            </ScrollView>
+       </NavigateProvider>
     )
 }
 
