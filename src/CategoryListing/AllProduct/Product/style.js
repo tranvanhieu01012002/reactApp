@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
     container: {
         width:150,
         height:230,
-        marginLeft:10,
-        backgroundColor:'yellow'
+        marginBottom:20,
+        borderRadius:20
     },
     image:{
         borderTopLeftRadius:10,
@@ -20,6 +20,17 @@ const styles = StyleSheet.create({
     },
     text:{
         marginLeft:10
+    },
+    info:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
+    rate:{
+        backgroundColor:'yellow',
+        width:50,
+        borderTopLeftRadius:10,
+        borderBottomLeftRadius:10,
+        justifyContent:'space-around'
     }
 });
 

@@ -36,7 +36,8 @@ const AllProduct = ({navigation}) => {
         <View>
             <Text>Top product</Text>
             <FlatList
-                nestedScrollEnabled
+                columnWrapperStyle={{justifyContent: 'space-between'}}
+                // nestedScrollEnabled
                 key={'_'}
                 style={styles.flatList}
                 data={data}

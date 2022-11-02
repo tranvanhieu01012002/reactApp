@@ -17,9 +17,11 @@ const CategoryListing = ({navigation}) => {
                 horizontal={false} 
                 style={styles.container}
             >
-                <Banner/>
-                <TopProduct navigation={navigation}/>
-                <AllProduct navigation={navigation}/>
+               <View>
+                    <Banner/>
+                    <TopProduct navigation={navigation}/>
+                    <AllProduct navigation={navigation}/>
+               </View>
             </ScrollView>
        </NavigateProvider>
     )

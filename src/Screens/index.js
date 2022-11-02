@@ -5,7 +5,7 @@ import CategoryListing from '../CategoryListing';
 import ProductDetail from '../ProductDetail';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Profile from '../Profile';
-import Camera from '../camera';
+import Camera from '../Camera';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
