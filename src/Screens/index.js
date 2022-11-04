@@ -6,6 +6,7 @@ import ProductDetail from '../ProductDetail';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Profile from '../Profile';
 import Camera from '../Camera';
+import Map from '../Map';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -36,11 +37,11 @@ export default function App() {
                         ),
                     }}
                 />
-                 <Tab.Screen name="Access Camera" component={Camera} 
+                 <Tab.Screen name="Google Map" component={Map} 
                     options={{
-                        tabBarLabel: 'Detail product',
+                        tabBarLabel: 'Google Map',
                         tabBarIcon: ({ color, size }) => (
-                            <Icon name="camera" color={color} size={size} />
+                            <Icon name="map" color={color} size={size} />
                         ),
                     }}
                 />
