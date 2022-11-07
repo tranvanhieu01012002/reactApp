@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CategoryListing from '../CategoryListing';
 import ProductDetail from '../ProductDetail';
+import LocationListing from '../LocationListing';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Profile from '../Profile';
-import Camera from '../Camera';
-import Map from '../Map';
+import Map from '../Map'
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -29,14 +29,22 @@ export default function App() {
                         ),
                     }}
                 name="Category Listing" component={CategoryListing} />
-                <Tab.Screen name="Detail Product" component={ProductDetail} 
+                <Tab.Screen name="location" component={LocationListing} 
                     options={{
-                        tabBarLabel: 'Detail product',
+                        tabBarLabel: 'Location',
                         tabBarIcon: ({ color, size }) => (
-                            <Icon name="phone" color={color} size={size} />
+                            <Icon name="paper-plane" color={color} size={size} />
                         ),
                     }}
-                />
+                /> 
+                {/* <Tab.Screen name="Detail Product" component={ProductDetail} 
+                options={{
+                    tabBarLabel: 'Detail product',
+                    tabBarIcon: ({ color, size }) => (
+                        <Icon name="phone" color={color} size={size} />
+                    ),
+                }}
+            /> */}
                  <Tab.Screen name="Google Map" component={Map} 
                     options={{
                         tabBarLabel: 'Google Map',

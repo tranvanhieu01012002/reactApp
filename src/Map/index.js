@@ -1,43 +1,58 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import MapView from "react-native-maps";
+import {TextInput, View,Text } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 import { useState } from "react";
+import styles from "./style";
 
-export default function Map() {
-    const [region, setRegion] = useState({
-        latitude: 51.5079145,
-        longitude: -0.0899163,
+function Map({navigation }) {
+
+    const [marks,setMarks] = useState([ {
+        latitude: 16.0597983,
+        longitude: 108.2434979,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
+    },
+    {
+        latitude: 16.0697983,
+        longitude: 108.2434979,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+    }]);
+
+    const region = {
+        latitude: 16.0597983,
+        longitude: 108.2434979,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+    };
+    const addMark = (e)=>{
+    //    setMarks([...marks,{
+    //     latitude: e.nativeEvent.coordinate.latitude,
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitudeDelta: 0.01,
+    //     longitudeDelta: 0.01,
+    //    }])
+    navigation.navigate('location', {
+        itemId: 86,
+        otherParam: 'anything you want here',
       });
-      return (
+    }
+    return (
         <View style={styles.container}>
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: 15.77,
-              longitude: 107.3,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-            //onRegionChangeComplete runs when the user stops dragging MapView
-            onRegionChangeComplete={(region) => setRegion(region)}
-          />
-          {/*Display user's current region:*/}
-          <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-          <Text style={styles.text}>Current longitude: {region.longitude}</Text>
-        </View>
-      );
+            <MapView
+                zoomEnabled={true}
+                zoomControlEnabled={true}
+                style={styles.map}
+                initialRegion={region}
+                onPress={addMark}
+                >
+               {marks.map((item,i)=>(
+                <Marker key={i} coordinate={item}/>
+               ))}
+            </MapView>
+            <TextInput style={styles.input}/>
+        </View>        
+    );
 }
-//create our styling code:
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    flex: 1, //the container will fill the whole screen.
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
+
+export default Map;
