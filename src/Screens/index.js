@@ -11,21 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const DataContext = React.createContext();
 function Screens() {
-    const [locations,setLocations] = React.useState([{
-        latitude: 16.0597983,
-        longitude: 108.2434979,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-    },
-    {
-        latitude: 16.0697983,
-        longitude: 108.2434979,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-    }]);
-    
-    
-
+    const [locations,setLocations] = React.useState([]);
     return (
        <DataContext.Provider value={{locations,setLocations}}>
             <NavigationContainer>

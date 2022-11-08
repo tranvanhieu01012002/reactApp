@@ -17,5 +17,11 @@ const styles = StyleSheet.create({
     more:{
         flex:1,
     }
+    ,edit:{
+        flex:1
+    },
+    delete:{
+        flex:1
+    }
 });
 export default styles;

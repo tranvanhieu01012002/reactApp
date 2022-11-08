@@ -5,9 +5,10 @@ import { useState } from "react";
 import styles from "./style";
 import { DataContext } from "../Screens";
 
-function Map({navigation }) {
-    const {locations,setLocations} = useContext(DataContext)
-
+function Map({route,navigation}) {
+    const {locations,setLocations} = useContext(DataContext);
+    const { id } = route.params ??  {id:-1};
+    console.log(id);
     const region = {
         latitude: 16.0597983,
         longitude: 108.2434979,
@@ -48,18 +49,6 @@ function Map({navigation }) {
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
            }])
-    //    setMarks([...marks,{
-    //     latitude: e.nativeEvent.coordinate.latitude,
-    //     longitude: e.nativeEvent.coordinate.longitude,
-    //     latitudeDelta: 0.01,
-    //     longitudeDelta: 0.01,
-    //    }])
-    // console.log(e);
-        // confirmDiaLog(e)
-    // navigation.navigate('location', {
-    //     itemId: 86,
-    //     otherParam: 'anything you want here',
-    //   });
     }
     return (
         <View style={styles.container}>
@@ -71,10 +60,9 @@ function Map({navigation }) {
                 onPress={addMark}
                 >
                {locations.map((item,i)=>(
-                <Marker key={i} coordinate={item}/>
+                <Marker pinColor={i==id?'green':'red'} key={i} coordinate={item}/>
                ))}
             </MapView>
-            <Button title="view product"/>
         </View>        
     );
 }
