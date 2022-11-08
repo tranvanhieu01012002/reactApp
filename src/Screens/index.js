@@ -9,9 +9,26 @@ import Profile from '../Profile';
 import Map from '../Map'
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+const DataContext = React.createContext();
+function Screens() {
+    const [locations,setLocations] = React.useState([{
+        latitude: 16.0597983,
+        longitude: 108.2434979,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+    },
+    {
+        latitude: 16.0697983,
+        longitude: 108.2434979,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+    }]);
+    
+    
+
     return (
-        <NavigationContainer>
+       <DataContext.Provider value={{locations,setLocations}}>
+            <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen
                 options={{
@@ -29,7 +46,7 @@ export default function App() {
                         ),
                     }}
                 name="Category Listing" component={CategoryListing} />
-                <Tab.Screen name="location" component={LocationListing} 
+                 <Tab.Screen name="location" component={LocationListing} 
                     options={{
                         tabBarLabel: 'Location',
                         tabBarIcon: ({ color, size }) => (
@@ -54,6 +71,8 @@ export default function App() {
                     }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
+            </NavigationContainer>
+       </DataContext.Provider>
     );
 }
+export {Screens,DataContext}

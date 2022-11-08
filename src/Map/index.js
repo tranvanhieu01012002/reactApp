@@ -1,23 +1,12 @@
-import React from "react";
-import {TextInput, View,Text } from "react-native";
+import React, { useContext } from "react";
+import {TextInput, View,Text, Alert, Button } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useState } from "react";
 import styles from "./style";
+import { DataContext } from "../Screens";
 
 function Map({navigation }) {
-
-    const [marks,setMarks] = useState([ {
-        latitude: 16.0597983,
-        longitude: 108.2434979,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-    },
-    {
-        latitude: 16.0697983,
-        longitude: 108.2434979,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-    }]);
+    const {locations,setLocations} = useContext(DataContext)
 
     const region = {
         latitude: 16.0597983,
@@ -25,17 +14,52 @@ function Map({navigation }) {
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     };
+    const confirmDiaLog = (e)=>{
+        const setMark1 = (e)=>{
+            // setMarks([...marks,{
+            //     latitude: e.nativeEvent.coordinate.latitude,
+            //     longitude: e.nativeEvent.coordinate.longitude,
+            //     latitudeDelta: 0.01,
+            //     longitudeDelta: 0.01,
+            // }])
+        }
+        return Alert.alert(
+            "Are your sure?",
+            "Are you sure you want to remove this beautiful box?",
+            [
+                // The "Yes" button
+                {
+                  text: "Yes",
+                  onPress: ()=>setMark1(e),
+                },
+                {
+                  text: "No",
+                  onPress: () => {
+                    console.log("fail");
+                   },
+                },
+              ]
+        )
+    }
     const addMark = (e)=>{
+        setLocations([...locations,{
+            latitude: e.nativeEvent.coordinate.latitude,
+            longitude: e.nativeEvent.coordinate.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+           }])
     //    setMarks([...marks,{
     //     latitude: e.nativeEvent.coordinate.latitude,
     //     longitude: e.nativeEvent.coordinate.longitude,
     //     latitudeDelta: 0.01,
     //     longitudeDelta: 0.01,
     //    }])
-    navigation.navigate('location', {
-        itemId: 86,
-        otherParam: 'anything you want here',
-      });
+    // console.log(e);
+        // confirmDiaLog(e)
+    // navigation.navigate('location', {
+    //     itemId: 86,
+    //     otherParam: 'anything you want here',
+    //   });
     }
     return (
         <View style={styles.container}>
@@ -46,11 +70,11 @@ function Map({navigation }) {
                 initialRegion={region}
                 onPress={addMark}
                 >
-               {marks.map((item,i)=>(
+               {locations.map((item,i)=>(
                 <Marker key={i} coordinate={item}/>
                ))}
             </MapView>
-            <TextInput style={styles.input}/>
+            <Button title="view product"/>
         </View>        
     );
 }

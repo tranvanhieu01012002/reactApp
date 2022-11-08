@@ -1,15 +1,16 @@
 import { View, Text,Button } from 'react-native';
 import Location from './Location';
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from '../Screens';
 
-const LocationListing = ({route,navigation}) => {
-    // const { itemId, otherParam } = route.params;
-    const itemId = 'ff';
+const LocationListing = ({navigation}) => {
+    const {locations} = useContext(DataContext);
     return (
         <View>
-            <Location icon='send' task={'Location 1'}/>
-            <Text>{itemId}</Text>
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+            {locations.map((item,i)=>(
+                <Location color={'#0444'} index={i} key={i} longitude={item.longitude} latitude={item.latitude} icon={'send'} task='hihi'/>
+            ))}
+            <Button title="Go to Map" onPress={() => navigation.navigate('Google Map')} />
         </View>
     )
 }
