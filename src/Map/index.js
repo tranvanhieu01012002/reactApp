@@ -15,40 +15,30 @@ function Map({route,navigation}) {
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     };
-    const confirmDiaLog = (e)=>{
-        const setMark1 = (e)=>{
-            // setMarks([...marks,{
-            //     latitude: e.nativeEvent.coordinate.latitude,
-            //     longitude: e.nativeEvent.coordinate.longitude,
-            //     latitudeDelta: 0.01,
-            //     longitudeDelta: 0.01,
-            // }])
-        }
-        return Alert.alert(
-            "Are your sure?",
-            "Are you sure you want to remove this beautiful box?",
-            [
-                // The "Yes" button
-                {
-                  text: "Yes",
-                  onPress: ()=>setMark1(e),
-                },
-                {
-                  text: "No",
-                  onPress: () => {
-                    console.log("fail");
-                   },
-                },
-              ]
-        )
-    }
-    const addMark = (e)=>{
-        setLocations([...locations,{
-            latitude: e.nativeEvent.coordinate.latitude,
-            longitude: e.nativeEvent.coordinate.longitude,
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01,
-           }])
+
+    const addMark = ()=>{
+        // setLocations([...locations,{
+        //     latitude: e.nativeEvent.coordinate.latitude,
+        //     longitude: e.nativeEvent.coordinate.longitude,
+        //     latitudeDelta: 0.01,
+        //     longitudeDelta: 0.01,
+        //    }])
+        
+        Alert.prompt( "Enter password",
+        "Enter your password to claim your $1.5B in lottery winnings",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          {
+            text: "OK",
+            onPress: password => console.log("OK Pressed, password: " + password)
+          }
+        ],
+        "secure-text"
+      )
     }
     return (
         <View style={styles.container}>
