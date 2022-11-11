@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     image:{
         borderTopLeftRadius:10,
         borderTopRightRadius:10,
-        width:'100%'
+        width:'100%',
+        height:300
     },
     textAre:{
         backgroundColor:'#F5F7FA',
