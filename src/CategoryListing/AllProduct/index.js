@@ -5,7 +5,6 @@ import styles from './style';
 
 const AllProduct = ({navigation,products}) => {
     const renderItem = ({item})=>{
-        console.log(item);
         return (
             <View>
                 <Product navigation={navigation} name={item.name} image={item.image}/>

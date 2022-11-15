@@ -37,14 +37,20 @@ const CategoryListing = ({navigation}) => {
             >
                <View>
                     <Banner/>
-                    <TopProduct navigation={navigation}/>
                     {
                         products.isLoaded 
                         ? 
-                        <AllProduct 
-                            products={products.data}  
-                            navigation={navigation}
-                        />
+                            <View>
+                                <TopProduct 
+                                    products={products.data}   
+                                    navigation={navigation}
+                                />
+                                <AllProduct 
+                                products={products.data}  
+                                navigation={navigation}
+                                />
+                            </View>
+                        
                         :
                         <Text>Loading ...</Text>
                     }

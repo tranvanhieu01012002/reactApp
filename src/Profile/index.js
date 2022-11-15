@@ -8,12 +8,12 @@ const data=[
     {
         id:'1',
         icon: 'facebook',
-        task:'Private account'
+        task:'Take care helth'
     },
     {
         id:'2',
         icon: 'google',
-        task:'Private account'
+        task:'Check the mic'
     },
     {
         id:'3',

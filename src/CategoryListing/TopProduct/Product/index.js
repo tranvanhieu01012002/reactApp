@@ -9,7 +9,7 @@ const Product = ({name,image,navigation}) => {
     return (
         <TouchableOpacity onPress={press} style={styles.container}>
             <Image 
-                source={image}
+                source={{uri:image}}
                 style={styles.image}
                 />
             <View
