@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/Screens/Home';
 import MovieDetails from './src/Screens/MovieDetails';
 import Browse from './src/Screens/Browse';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,8 +34,18 @@ const App = () => {
 	return (
 		<NavigationContainer>
 			<Tab.Navigator>
-				<Tab.Screen name="Search" component={Search} />
-				<Tab.Screen name="Browser" component={Browser} />
+				<Tab.Screen  name="Search" component={Search} 
+				options={{
+					tabBarLabel: "Search",
+					tabBarIcon: ()=><Icon name="search" size={30}  />
+				}}
+				/>
+				<Tab.Screen name="Browser" component={Browser} 
+				options={{
+					tabBarLabel: "Browser",
+					tabBarIcon: ()=><Icon name="google" size={30}  />
+				}}
+				/>
 			</Tab.Navigator>
 		</NavigationContainer>
 	);
