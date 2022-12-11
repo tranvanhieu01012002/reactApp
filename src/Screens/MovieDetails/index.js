@@ -12,6 +12,7 @@ import axios from 'axios';
 import Recommendation from '../../components/Recommendation';
 import styles from './style';
 import FILM_KEY from '../../../constant';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const DEFAULT_IMG = "https://media.gettyimages.com/photos/old-film-perforated-celluloid-picture-id155278297?s=2048x2048";
 const IMG_ENDPOINT = `https://image.tmdb.org/t/p/w500/`;
@@ -86,7 +87,12 @@ const MovieDetails = ({ navigation, route }) => {
 		fetchMovie();
 		fetchRecommendations();
 	}, []);
-
+	const addFilm = ()=>{
+		axios.post("https://61cfb80065c32600170c7fa8.mockapi.io/film",
+			{movie}
+		).then((res)=>alert("Add success"))
+		.catch(err=>alert(err.toString()))
+	}
 	if (error) {
 		return (
 			<View>
@@ -127,6 +133,11 @@ const MovieDetails = ({ navigation, route }) => {
 							)
 						}
 					</View>
+					<TouchableOpacity 
+						onPress={addFilm}
+						style={styles.button}>
+						<Text>Add to interested film</Text>
+					</TouchableOpacity>
 					{
 						recommendations.length === 0 ? (
 							<View></View>

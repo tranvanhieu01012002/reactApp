@@ -8,54 +8,62 @@ import Home from './src/Screens/Home';
 import MovieDetails from './src/Screens/MovieDetails';
 import Browse from './src/Screens/Browse';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LoginFacebook from './src/components/LoginFacebook';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Search = () => {
-	return (
-		<Stack.Navigator>
-			<Stack.Screen name="Home" component={Home} />
-			<Stack.Screen name="Details" component={MovieDetails} />
-		</Stack.Navigator>
-	);
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Details" component={MovieDetails} />
+        </Stack.Navigator>
+    );
 };
 
 const Browser = () => {
-	return (
-		<Stack.Navigator>
-			<Stack.Screen name="Browse" component={Browse} />
-			<Stack.Screen name="Details" component={MovieDetails} />
-		</Stack.Navigator>
-	);
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Browse" component={Browse} />
+            <Stack.Screen name="Details" component={MovieDetails} />
+        </Stack.Navigator>
+    );
 };
 
 const App = () => {
-	return (
-		<NavigationContainer>
-			<Tab.Navigator>
-				<Tab.Screen  name="Search" component={Search} 
-				options={{
-					tabBarLabel: "Search",
-					tabBarIcon: ()=><Icon name="search" size={30}  />
-				}}
-				/>
-				<Tab.Screen name="Browser" component={Browser} 
-				options={{
-					tabBarLabel: "Browser",
-					tabBarIcon: ()=><Icon name="google" size={30}  />
-				}}
-				/>
-			</Tab.Navigator>
-		</NavigationContainer>
-	);
+    return (
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen name="Search" component={Search}
+                    options={{
+                        tabBarLabel: "Search",
+                        tabBarIcon: () => <Icon name="search" size={30} />
+                    }}
+                />
+                <Tab.Screen name="Browser" component={Browser}
+                    options={{
+                        tabBarLabel: "Browser",
+                        tabBarIcon: () => <Icon name="google" size={30} />
+                    }}
+                />
+                <Tab.Screen name='Profile' component={LoginFacebook}
+                    options={{
+                        tabBarLabel: "Profile",
+                        tabBarIcon: () => <Icon name="phone" size={30} />
+                    }}
+                />
+            </Tab.Navigator>
+        </NavigationContainer>
+    );
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center'
-	}
+    container: {
+        flex: 1,
+        alignItems: 'center'
+    }
 });
 
 export default App;
+

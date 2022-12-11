@@ -39,6 +39,15 @@ const styles = StyleSheet.create({
 	rec_head: {
 		fontSize: 22,
 		fontWeight: 'bold'
+	},
+	button:{
+		elevation: 8,
+		backgroundColor: "#009688",
+		borderRadius: 10,
+		paddingVertical: 10,
+		width:200,
+		margin:30,
+		paddingHorizontal: 12
 	}
 });
 
